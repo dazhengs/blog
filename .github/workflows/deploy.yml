@@ -40,6 +40,12 @@ jobs:
       - name: Build Project
         run: yarn build
 
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs/.vitepress/dist
+          destination: ./_site
+
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
 

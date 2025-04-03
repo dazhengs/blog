@@ -28,23 +28,17 @@ jobs:
         with:
           fetch-depth: 0
 
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: latest
-
-      - name: Setup Node.js & pnpm
+      - name: Setup Node.js & Yarn
         uses: actions/setup-node@v4
         with:
           node-version: 23
-          cache: "pnpm"
+          cache: "yarn"
 
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: Build Project
-        run: pnpm build
+        run: yarn build
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3

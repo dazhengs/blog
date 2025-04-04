@@ -27,6 +27,39 @@ const blogTheme = getThemeConfig({
   // markdown 图表支持（会增加一定的构建耗时）
   // mermaid: true
 
+
+  article: {
+    /**
+     * 是否展示文章的预计阅读时间
+     */
+    readingTime: true,
+    /**
+     * 是否隐藏文章页的封面展示
+     */
+    hiddenCover: false,
+    /**
+     * 阅读时间分析展示位置
+     */
+    readingTimePosition: 'inline',
+    /**
+     * 自定义一系列文案标题
+     */
+     analyzeTitles: {
+       inlineWordCount: '{{value}} word counts',
+       inlineReadTime: '{{value}} min read time',
+       wordCount: 'Total word count',
+       readTime: 'Total read time',
+       author: 'Author',
+       publishDate: 'Published on',
+       lastUpdated: 'Last updated on',
+       tag: 'Tags',
+     }
+  },
+  formatShowDate: {
+    minutesAgo: ' minutes ago',
+    hoursAgo: ' hours ago'
+  },
+
   // 页脚
   footer: {
     // message 字段支持配置为HTML内容，配置多条可以配置为数组

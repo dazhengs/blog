@@ -1,5 +1,6 @@
 ---
 title:  A Busy but Happy Day
+date: 2025-04-04
 ---
 
 # A Busy but Happy Day

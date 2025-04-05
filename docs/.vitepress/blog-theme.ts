@@ -73,7 +73,7 @@ const blogTheme = getThemeConfig({
   footer: {
     // message 字段支持配置为HTML内容，配置多条可以配置为数组
     // message: '下面 的内容和图标都是可以修改的噢（当然本条内容也是可以隐藏的）',
-    copyright: 'MIT License | dazheng',
+    copyright: 'MIT License | aaron',
     // icpRecord: {
     //   name: '蜀ICP备19011724号',
     //   link: 'https://beian.miit.gov.cn/'
@@ -84,11 +84,17 @@ const blogTheme = getThemeConfig({
     // },
   },
 
+  recommend: {
+    title: "Related articles",
+    pageSize: 10,
+    showSelf: false,
+    empty: "No related articles yet"
+  },
   // 主题色修改
   themeColor: 'el-blue',
 
   // 文章默认作者
-  author: 'dazheng',
+  author: 'aaron',
   //评论
   comment: {
     type: 'giscus',
@@ -98,6 +104,7 @@ const blogTheme = getThemeConfig({
       category: 'Announcements',
       categoryId: 'DIC_kwDOOSN_BM4CovGc',
       inputPosition: 'top',
+      lang: 'en',
     },
     mobileMinify: true
   }

@@ -56,8 +56,17 @@ const blogTheme = getThemeConfig({
      }
   },
   formatShowDate: {
+    secondsAgo: ' seconds ago',
     minutesAgo: ' minutes ago',
-    hoursAgo: ' hours ago'
+    hoursAgo: ' hours ago',
+    daysAgo: ' days ago',
+  },
+
+  hotArticle: {
+    title: '🔥 Featured Articles',
+    nextText: 'Next Group',
+    pageSize: 9,
+    empty: 'No featured content yet'
   },
 
   // 页脚

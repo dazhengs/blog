@@ -19,8 +19,8 @@ export default defineConfig({
   extends: blogTheme,
   base,
   lang: 'zh-cn',
-  title: 'dazheng',
-  description: 'dazheng\'s blog',
+  title: 'aaron',
+  description: 'aaron\'s blog',
   lastUpdated: true,
   // 详见：https://vitepress.dev/zh/reference/site-config#head
   head: [
@@ -41,11 +41,11 @@ export default defineConfig({
 
     // 设置logo
     logo: '/logo.png',
-    // editLink: {
-    //   pattern:
-    //     'https://github.com/ATQQ/sugar-blog/tree/master/packages/blogpress/:path',
-    //   text: '去 GitHub 上编辑内容'
-    // },
+    editLink: {
+      pattern:
+        'https://github.com/dazhengs/blog/tree/main/docs/:path',
+      text: 'Edit this page on GitHub'
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'About', link: 'about' }

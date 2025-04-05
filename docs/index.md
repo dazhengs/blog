@@ -2,16 +2,19 @@
 layout: home
 # 首页部分元素定制
 blog:
- name: 'dazheng'
+ name: 'The Great Debugger'
  motto: 'just do it'
  inspiring:
-  - 基于 Vitepress 定制的主题🎨
-  - 千万不要因为走得太久，而忘记了我们为什么出发
-  - 人生就像一场修行，你不可能一开始就修成正果
-  - 无论多么沉重的负担，也不要忘记微笑；无论多么漫长的路程，也不要忘记坚持
-  - 生活的真谛不在繁华，而在于淡泊
+  - Life is short. Smile while you still have teeth.
+  - Age is merely the number of years the world has been enjoying you. 
+  - I used to think I was indecisive, but now I’m not so sure.
+  - Why fit in when you were born to stand out?
+  - The unexamined life is not worth living.
+  - Be yourself; everyone else is already taken.
+  - What you do today can improve all your tomorrows.
+  - I am an early bird and a night owl… so I am wise and I have worms.
  # 设置 inspiringTimeout 可以实现自动切换
- inspiringTimeout: 3000
+ inspiringTimeout: 5000
  analysis: 
    articles: 
      title: ['Blog Articles', 'Monthly Updates', 'Weekly Updates']

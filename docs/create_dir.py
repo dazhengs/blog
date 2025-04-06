@@ -1,5 +1,8 @@
 import datetime
 import os
+# Change working directory to script location
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
 begin_date = datetime.date(2025, 4, 3)
 end_date = datetime.date(2025, 12, 31)

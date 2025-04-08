@@ -48,6 +48,7 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Tools', link: 'tools' },
       { text: 'About', link: 'about' }
     ],
     socialLinks: [

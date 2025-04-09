@@ -14,7 +14,7 @@ so I decided to update the code to generate a new,random, and less complex passw
 Here is my new code written in Golang. This Go program generates “human-friendly” but complex passwords, combining positive, memorable words with random characters (digit, special char, uppercase, etc.)
 
 
-```golang
+```go
 package main
 
 import (

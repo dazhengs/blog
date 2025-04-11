@@ -13,6 +13,7 @@ so I decided to update the code to generate a new,random, and less complex passw
 
 Here is my new code written in Golang. This Go program generates “human-friendly” but complex passwords, combining positive, memorable words with random characters (digit, special char, uppercase, etc.)
 
+## a demo
 
 ```go
 package main
@@ -149,3 +150,182 @@ func main() {
 ```
 
 
+## how to use more words 
+
+The best practice is to use positiveWords.txt to store as many words as possible and make it available as a Go package. Here is an example:
+
+```go
+// Package passgen provides functions to generate memorable, complex passwords.
+package passgen
+
+import (
+	"bufio"
+	"bytes"
+	_ "embed" // Import the embed package
+	"fmt"
+	"log"
+	"math/rand"
+	"strings"
+	"time"
+)
+
+//go:embed positiveWords.txt
+var positiveWordsBytes []byte // Embed the file content
+
+var (
+	positiveWords []string
+	safeSpecialChars = []rune("!@%*()-_=+")
+)
+
+var globalRand *rand.Rand
+
+func init() {
+	source := rand.NewSource(time.Now().UnixNano())
+	globalRand = rand.New(source)
+
+	loadedWords, err := loadWordsFromBytes(positiveWordsBytes)
+	if err != nil {
+		log.Fatalf("passgen: Failed to initialize positive words from embedded data: %v", err)
+	}
+	if len(loadedWords) == 0 {
+		log.Fatalf("passgen: Failed to initialize positive words: no words loaded from embedded positiveWords.txt")
+	}
+	positiveWords = loadedWords
+}
+
+// Helper function to load words from an embedded byte slice
+func loadWordsFromBytes(data []byte) ([]string, error) {
+	if len(data) == 0 {
+		return nil, fmt.Errorf("embedded word data is empty")
+	}
+	var words []string
+	reader := bytes.NewReader(data)
+	scanner := bufio.NewScanner(reader)
+	for scanner.Scan() {
+		line := scanner.Text()
+		word := strings.TrimSpace(line)
+		if word != "" {
+			words = append(words, strings.ToLower(word))
+		}
+	}
+	if err := scanner.Err(); err != nil {
+		return nil, fmt.Errorf("error scanning embedded word data: %w", err)
+	}
+	return words, nil
+}
+
+
+// --- Public API Function ---
+
+// GeneratePassword creates a memorable, complex password of the specified length.
+// It includes positive words separated by hyphens (if multiple words fit),
+// followed by at least one digit, one special character, and one uppercase letter.
+// The remainder is filled with lowercase letters. The final character order is NOT randomized.
+// The minimum length is 4. Lengths less than 4 will be treated as 4.
+// It is safe for concurrent use.
+func GeneratePassword(length int) string {
+	if length < 4 {
+		length = 4
+	}
+
+	var sb strings.Builder
+	sb.Grow(length)
+
+	// Reserve space for the 3 required non-word characters
+	wordTargetLen := length - 3
+	if wordTargetLen < 0 {
+		wordTargetLen = 0
+	}
+
+	// Fill with words, adding hyphens between them
+	if wordTargetLen > 0 && len(positiveWords) > 0 {
+		for { // Loop indefinitely until we break
+			word := getRandomWord()
+			wordLen := len(word)
+			hyphenLen := 0
+
+			// Determine if a hyphen is needed (if builder already has content)
+			if sb.Len() > 0 {
+				hyphenLen = 1 // Need space for '-'
+			}
+
+			// Check if the next word (and hyphen if needed) fits
+			if sb.Len()+hyphenLen+wordLen <= wordTargetLen {
+				// Add hyphen if this isn't the first word
+				if hyphenLen > 0 {
+					sb.WriteRune('-')
+				}
+				sb.WriteString(word)
+			} else {
+				// Word doesn't fit (or wordTargetLen was 0), break the loop
+				break
+			}
+
+            // If we've reached or exceeded the target, stop adding words
+            // (Handles cases where wordTargetLen is exactly filled)
+            if sb.Len() >= wordTargetLen {
+                break
+            }
+		}
+	}
+
+	// Define the required characters (order is now fixed)
+	needed := []func() rune{
+		getRandomDigit,
+		getRandomSpecialChar,
+		getRandomUppercaseLetter,
+	}
+	// -- REMOVED: Shuffling of needed elements --
+	// globalRand.Shuffle(len(needed), func(i, j int) {
+	// 	needed[i], needed[j] = needed[j], needed[i]
+	// })
+
+	// Add required elements in their defined order
+	for _, getCharFunc := range needed {
+		// Only add if we haven't reached the total desired length yet
+		if sb.Len() < length {
+			sb.WriteRune(getCharFunc())
+		}
+	}
+
+	// Fill any remaining length with lowercase letters
+	for sb.Len() < length {
+		sb.WriteRune(getRandomLowercaseLetter())
+	}
+
+	// -- REMOVED: Final shuffling of the password --
+	// runes := []rune(sb.String())
+	// globalRand.Shuffle(len(runes), func(i, j int) {
+	// 	runes[i], runes[j] = runes[j], runes[i]
+	// })
+	// return string(runes)
+
+	// Return the constructed string directly
+	return sb.String()
+}
+
+// --- Internal Helper Functions (Unexported) ---
+
+func getRandomWord() string {
+	if len(positiveWords) == 0 {
+		return "secure" // Fallback
+	}
+	return positiveWords[globalRand.Intn(len(positiveWords))]
+}
+
+func getRandomLowercaseLetter() rune {
+	return rune('a' + globalRand.Intn(26))
+}
+
+func getRandomUppercaseLetter() rune {
+	return rune('A' + globalRand.Intn(26))
+}
+
+func getRandomDigit() rune {
+	return rune('0' + globalRand.Intn(10))
+}
+
+func getRandomSpecialChar() rune {
+	return safeSpecialChars[globalRand.Intn(len(safeSpecialChars))]
+}
+```

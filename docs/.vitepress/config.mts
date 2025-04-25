@@ -38,7 +38,15 @@ export default defineConfig({
     returnToTopLabel: 'Return to Top',
     sidebarMenuLabel: 'Related Articles',
     lastUpdatedText: 'Last Updated',
-
+    lastUpdated: {
+      text: 'Last Updated', // Or keep your preferred label
+      formatOptions: {
+        year: 'numeric',   // Ensures 4-digit year (e.g., 2025)
+        month: '2-digit',  // Ensures 2-digit month (e.g., 04)
+        day: '2-digit'     // Ensures 2-digit day (e.g., 24)
+        // Do NOT include timeStyle or any hour/minute/second options
+      }
+    },
     // 设置logo
     logo: '/logo.png',
     editLink: {

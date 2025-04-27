@@ -49,11 +49,11 @@ export default defineConfig({
     },
     // 设置logo
     logo: '/logo.png',
-    editLink: {
-      pattern:
-        'https://github.com/dazhengs/blog/tree/main/docs/:path',
-      text: 'Edit this page on GitHub'
-    },
+    // editLink: {
+    //   pattern:
+    //     'https://github.com/dazhengs/blog/tree/main/docs/:path',
+    //   text: 'Edit this page on GitHub'
+    // },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Tools', link: 'tools' },

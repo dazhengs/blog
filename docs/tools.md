@@ -12,7 +12,10 @@ comment: false
 - [Convert image to PDF](https://tools.dazheng.site)
 - [Paste](https://paste.dazheng.site)
 - [OCR API](https://api.dazheng.site/)
+- [XingYi](https://xingyi.dazheng.site)
 
 ## private
 - [Object Store](https://oss.dazheng.site)
 - [Alist](https://file.dazheng.site)
+- [MySite](https://dazheng.site)
+- [SwimmingCheckin](https://dazheng.site/#/sports_checkin)

@@ -8,14 +8,14 @@ comment: false
 
 ## public
 
-- [Encrypt、Hash、Encode](https://tools.dazheng.site)
-- [Convert image to PDF](https://tools.dazheng.site)
-- [Paste](https://paste.dazheng.site)
-- [OCR API](https://api.dazheng.site/)
-- [XingYi](https://xingyi.dazheng.site)
+- [Encrypt、Hash、Encode](https://tools.dazheng.space)
+- [Convert image to PDF](https://tools.dazheng.space)
+- [Paste](https://paste.dazheng.space)
+- [OCR API](https://api.dazheng.space/)
+- [XingYi](https://xy.dazheng.space)
 
 ## private
-- [Object Store](https://oss.dazheng.site)
-- [Alist](https://file.dazheng.site)
-- [MySite](https://dazheng.site)
-- [SwimmingCheckin](https://dazheng.site/#/sports_checkin)
+- [Object Store](https://oss.dazheng.space)
+- [Alist](https://file.dazheng.space)
+- [MySite](https://dazheng.space)
+- [SwimmingCheckin](https://dazheng.space/#/sports_checkin)

@@ -41,9 +41,15 @@
 
 我带着阿强进行了如下操作，大家也可以拿小本本记下来，这是抓“内鬼”的标准姿势：
 
-打开 Procmon，瞬间屏幕上会像《黑客帝国》的代码雨一样滚动——因为系统每秒钟发生的事件太多了！别慌，先按 `Ctrl+E` 暂停捕获，我们要先“清场”。
+![b49735746affb2a6edcc665642a195e6.png](https://oss.dazheng.space/pic/1766457233b49735746affb2a6edcc665642a195e6.png)
+
+双击 Procmon.exe，瞬间屏幕上会像《黑客帝国》的代码雨一样滚动——因为系统每秒钟发生的事件太多了！别慌，先按 `Ctrl+E` 暂停捕获，我们要先“清场”。
+
+![b49735746affb2a6edcc665642a195e6.png](https://oss.dazheng.space/pic/1766457233b49735746affb2a6edcc665642a195e6.png)
 
 我们不想看系统正常运行的日志，我们只想盯着那个可疑的 PDF 软件。
+
+![ddded24f513c0850e9d53210172d010f.png](https://oss.dazheng.space/pic/1766457317ddded24f513c0850e9d53210172d010f.png)
 
 我在 Filter 菜单里设置了两个条件：
 

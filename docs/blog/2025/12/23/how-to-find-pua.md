@@ -45,7 +45,8 @@
 
 双击 Procmon.exe，瞬间屏幕上会像《黑客帝国》的代码雨一样滚动——因为系统每秒钟发生的事件太多了！别慌，先按 `Ctrl+E` 暂停捕获，我们要先“清场”。
 
-![b49735746affb2a6edcc665642a195e6.png](https://oss.dazheng.space/pic/1766457233b49735746affb2a6edcc665642a195e6.png)
+![7f3b179ebf65e03e7d3e59bfcaec1d72.png](https://oss.dazheng.space/pic/17664575237f3b179ebf65e03e7d3e59bfcaec1d72.png)
+
 
 我们不想看系统正常运行的日志，我们只想盯着那个可疑的 PDF 软件。
 
